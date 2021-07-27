@@ -1,0 +1,42 @@
+Project 
+
+Project Migration NAS Financial Group
+
+Step 1: Credentials
+
+- Create Nas Financial Group AWS Account (Will use my own AWS account)
+- Create CloudSpace_Engineers group with full admin access except billing access (create inline policy denied billing access using policy generator)
+
+- Create Security_Team group with full admin access with billing included to NAS Financial Group account
+
+- Create Operation_Team group with full admin access to deploy only in us-east-1 (create inline policy allowing only us-east-1 access)
+
+Step 2: Building of dynamic Website
+
+- Create a VPC
+- Create public and private subnets in at least 2 AZ and a load balancer for HA
+- Create security group for the instance (open HTTPS to ELB secutity group)
+- Create security group for the MySql database
+ - utilization metric to the instance.
+- Lunch a 3 tier website application (Linux server, Wordpress for the website and MySQL for database)
+- PCI (Payment Card Industry) Encryption with HTTPS: ACM certification
+- For High Availabilty and Fault tolerance 
+
+——————————————————————————————————————————————
+
+SERVICES TO USE
+
+1- IAM for permissions
+2- ACM for encryption
+3- ELB, Autoi scalling for HA and 
+4- Apache, Wordpress, RDS for the dynamique website
+5- S3 bucket for for the static website
+6- Multi AZ, Versioning for disaster recovery
+7- cloufwatch for mornitoring
+8- Give ssh privilege to CloudSpace engineers
+
+9- Launchi second dynamic Webserver in a private subnet
+10- add Nat gateway for private webserver updates
+11- open HTTP to VPC cdir block
+12- VPC peering NAS financial with NG2 account
+13- enable S3 bucket lifecycle
